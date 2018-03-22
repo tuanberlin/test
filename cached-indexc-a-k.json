@@ -1,0 +1,1669 @@
+  <html>
+<head>
+   <link rel="icon" href="https://www.w3schools.com/tags/demo_icon.gif" type="image/gif" sizes="16x16">
+<link rel="stylesheet" type="text/css" href="views/videoDetail/mystyle.css">
+  <!-- Bootstrap v4.x stylesheet -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<!-- bootstrap css theme -->
+	<link rel="stylesheet" href="https://mottie.github.io/tablesorter/docs/css/bootstrap-v4.min.css">
+
+	<script src="https://mottie.github.io/tablesorter/docs/js/jquery-latest.min.js"></script>
+	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+
+	<!-- pager plugin -->
+	<link rel="stylesheet" href="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.css">
+	<script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+	<style>
+	.tablesorter-pager .btn-group-sm .btn {
+	  font-size: 1.2em; /* make pager arrows more visible */
+	}
+	</style>
+  <script>
+  $(function() {
+
+  $("table").tablesorter({
+    theme : "bootstrap",
+
+    widthFixed: true,
+
+    // widget code contained in the jquery.tablesorter.widgets.js file
+    // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+    // the uitheme widget is NOT REQUIRED!
+    widgets : [ "filter", "columns", "zebra" ],
+
+    widgetOptions : {
+      // using the default zebra striping class name, so it actually isn't included in the theme variable above
+      // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+      zebra : ["even", "odd"],
+
+      // class names added to columns when sorted
+      columns: [ "primary", "secondary", "tertiary" ],
+
+      // reset filters button
+      filter_reset : ".reset",
+
+      // extra css class name (string or array) added to the filter element (input or select)
+      filter_cssFilter: [
+        'form-control',
+        'form-control',
+        'form-control custom-select', // select needs custom class names :(
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control'
+      ]
+
+    }
+  })
+  .tablesorterPager({
+
+    // target the pager markup - see the HTML block below
+    container: $(".ts-pager"),
+
+    // target the pager page select dropdown - choose a page
+    cssGoto  : ".pagenum",
+
+    // remove rows from the table to speed up the sort of large tables.
+    // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+    removeRows: false,
+
+    // output string - default is '{page}/{totalPages}';
+    // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
+    output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
+
+  });
+
+});
+  </script>  <title>List Video Manage</title>
+
+</head>
+<body>
+
+
+
+<div class="contentItem">
+	<div class="dropdown">
+	  <button class="dropbtn">ListDetail</button>
+	  <div class="dropdown-content">
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getAllWithView&k=1">get All ListDetail</a>
+		<a href="#">Add New</a>
+		<a href="#">Remove</a>
+	  </div>
+	</div>
+	<div class="dropdown">
+	  <button class="dropbtn">get All VideosDetail</button>
+	  <div class="dropdown-content">
+		<a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getAllWithView&k=0">get All VideosDetail(>10s)</a>
+		<a href="#">Add New</a>
+		<a href="#">Remove</a>
+	  </div>
+	</div>
+	<div class="dropdown">
+	  <button class="dropbtn">get All Category(3-10)</button>
+	  <div class="dropdown-content">
+		
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3"> Category Beginners</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4"> Category Listening</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5"> Category Grammar</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6"> Category Vocabulary</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7"> Category Reading</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=8"> Category Writing</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9"> Category Pronunciation</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10">Category Speaking</a>
+	  </div>
+	</div>
+	
+	<div class="dropdown">
+	  <button class="dropbtn">get All Category(11-17)</button>
+	  <div class="dropdown-content">
+				<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11">Category Exams</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12"> Category German Songs</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13"> Category German Film</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=14"> Category German For Kids</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15"> Category DSH Exams</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16"> Category Study in Germany</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=17"> Category Life in Germany</a>
+	  </div>
+	</div>
+	
+	<div class="dropdown">
+	  <button class="dropbtn">get All Category(18-22)</button>
+	  <div class="dropdown-content">
+				<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=18"> Category Numbers</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19"> Category Shopping</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20"> Category Food</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21"> Category Jobs</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=22"> Category Health</a>
+	  </div>
+	</div>
+</div>
+
+
+<form method="get" style="margin-left: 100px;" >
+	<input type="text" name="kw" value="" placeholder="search here">
+	<input type="submit" name="submit" value="search name videos">
+</form>
+
+
+<form method="get" style="margin-left: 100px;" >
+	<input type="text" name="kwl" value="" placeholder="search name List here">
+	<input type="submit" name="submit" value="search name List videos">
+</form><br/>
+<h1>List Video Manage</h1>
+
+
+<table class="table table-bordered table-striped">
+  <thead> <!-- add class="thead-inverse" for a dark header -->
+    <tr>
+      <th>stt</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>CategoryID</th>
+      <th>Video count</th>
+      <th>Add too</th>
+      <th>Xoa</th>
+	</tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>stt</th>
+      <th>Image</th>
+      <th>Name</th>
+	  <th>CategoryID</th>
+      <th>Video count</th>
+      <th>Add too</th>
+      <th>Xoa</th>
+    </tr>
+    <tr>
+      <th colspan="7" class="ts-pager">
+        <div class="form-inline">
+          <div class="btn-group btn-group-sm mx-1" role="group">
+            <button type="button" class="btn btn-secondary first" title="first">⇤</button>
+            <button type="button" class="btn btn-secondary prev" title="previous">←</button>
+          </div>
+          <span class="pagedisplay"></span>
+          <div class="btn-group btn-group-sm mx-1" role="group">
+            <button type="button" class="btn btn-secondary next" title="next">→</button>
+            <button type="button" class="btn btn-secondary last" title="last">⇥</button>
+          </div>
+          <select class="form-control-sm custom-select px-1 pagesize" title="Select page size">
+            <option selected="selected" value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="all">All Rows</option>
+          </select>
+          <select class="form-control-sm custom-select px-4 mx-1 pagenum" title="Select page number"></select>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+  <tbody>
+	
+   <tr>
+      <td>1</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5QyCnFPRx0GxaFjdAVkx7K9TfEklY4sg" title="German A1"><img width="100px" src="https://i.ytimg.com/vi/GwBfUzPCiaw/mqdefault.jpg" alt="German A1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5QyCnFPRx0GxaFjdAVkx7K9TfEklY4sg" title="German A1">German A1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=1" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>2</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL069E67EF4143491A" title="Learn German with english subtitle"><img width="100px" src="https://i.ytimg.com/vi/DL1dz1bUj3c/mqdefault.jpg" alt="Learn German with english subtitle"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL069E67EF4143491A" title="Learn German with english subtitle">Learn German with english subtitle</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>17</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=2" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>3</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5QyCnFPRx0G34DRN9b5MDwsUQoxIbg6c" title="German A2"><img width="100px" src="https://i.ytimg.com/vi/52HGjfJDay8/mqdefault.jpg" alt="German A2"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5QyCnFPRx0G34DRN9b5MDwsUQoxIbg6c" title="German A2">German A2</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=3" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>12</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRFXJhfkdY8vrLjZ2470cy0" title="Einfach Deutsch lernen mit Untertiteln"><img width="100px" src="https://i.ytimg.com/vi/EzYBUIRFHAY/mqdefault.jpg" alt="Einfach Deutsch lernen mit Untertiteln"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRFXJhfkdY8vrLjZ2470cy0" title="Einfach Deutsch lernen mit Untertiteln">Einfach Deutsch lernen mit Untertiteln</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=12" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>15</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLikxyuVhbpTjwOuagioGOhDjPmVI9y96S" title="Deutsch lernen Grammatik"><img width="100px" src="https://i.ytimg.com/vi/8dRJmIZDBWI/mqdefault.jpg" alt="Deutsch lernen Grammatik"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLikxyuVhbpTjwOuagioGOhDjPmVI9y96S" title="Deutsch lernen Grammatik">Deutsch lernen Grammatik</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>21</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=15" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>16</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWihEUhG_z7JDRAT4Rl8qrRM" title="Grammatik (Niveau B1)"><img width="100px" src="https://i.ytimg.com/vi/1dBUHZuKcu4/mqdefault.jpg" alt="Grammatik (Niveau B1)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWihEUhG_z7JDRAT4Rl8qrRM" title="Grammatik (Niveau B1)">Grammatik (Niveau B1)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>20</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=16" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>17</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLtoL8CLMYLwg_Qx2wf8z5BFUTKEEEX1vU" title="B2 Grammatik"><img width="100px" src="https://i.ytimg.com/vi/1TU2dTce1_A/mqdefault.jpg" alt="B2 Grammatik"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLtoL8CLMYLwg_Qx2wf8z5BFUTKEEEX1vU" title="B2 Grammatik">B2 Grammatik</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>17</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=17" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>18</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLhlhnYNoG2kDDKfOs57D0g2REKGq-6R_t" title="Grammatik A2 Deutsch"><img width="100px" src="https://i.ytimg.com/vi/Y97g74VeXFw/mqdefault.jpg" alt="Grammatik A2 Deutsch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLhlhnYNoG2kDDKfOs57D0g2REKGq-6R_t" title="Grammatik A2 Deutsch">Grammatik A2 Deutsch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=18" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>27</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8D88DDBB86DFF18E" title="Deutsch lesen"><img width="100px" src="https://i.ytimg.com/vi/lKRyPvp_7l4/mqdefault.jpg" alt="Deutsch lesen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8D88DDBB86DFF18E" title="Deutsch lesen">Deutsch lesen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>22</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=27" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>28</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL023ZURfp2WkhOm8jcFIWtbjcENqTDLQk" title="Deutsch Test A1 / A2 / B 1 German Test Preparation"><img width="100px" src="https://i.ytimg.com/vi/xKoLKRRiFsM/mqdefault.jpg" alt="Deutsch Test A1 / A2 / B 1 German Test Preparation"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL023ZURfp2WkhOm8jcFIWtbjcENqTDLQk" title="Deutsch Test A1 / A2 / B 1 German Test Preparation">Deutsch Test A1 / A2 / B 1 German Test Preparation</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=8" title="see 8">8</a></td>
+	  <td>24</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=8" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=28" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>30</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLneqwMJNfnlCpRPMfPeFzV_97zUkuKFXl" title="Email schreiben"><img width="100px" src="https://i.ytimg.com/vi/hRJdE5pc84Y/mqdefault.jpg" alt="Email schreiben"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLneqwMJNfnlCpRPMfPeFzV_97zUkuKFXl" title="Email schreiben">Email schreiben</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=8" title="see 8">8</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=8" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=30" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>31</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLOme5PxhNTvzO-ATTB_iM9_C6-aIFdSUx" title="Writing letter"><img width="100px" src="https://i.ytimg.com/vi/eg4X5bFFFEU/mqdefault.jpg" alt="Writing letter"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLOme5PxhNTvzO-ATTB_iM9_C6-aIFdSUx" title="Writing letter">Writing letter</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=8" title="see 8">8</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=8" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=31" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>32</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5A1A74E52C13D030" title="Pronunciation - Learn German - Deutsch lernen"><img width="100px" src="https://i.ytimg.com/vi/5rzejP0tszo/mqdefault.jpg" alt="Pronunciation - Learn German - Deutsch lernen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5A1A74E52C13D030" title="Pronunciation - Learn German - Deutsch lernen">Pronunciation - Learn German - Deutsch lernen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=32" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>33</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLpWerCyspKgZcFcKzsocpBhJEU38XZ9oQ" title="Training Vocabulary and Pronunciation"><img width="100px" src="https://i.ytimg.com/vi/djxZedYmlLI/mqdefault.jpg" alt="Training Vocabulary and Pronunciation"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLpWerCyspKgZcFcKzsocpBhJEU38XZ9oQ" title="Training Vocabulary and Pronunciation">Training Vocabulary and Pronunciation</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>20</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=33" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>34</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLvGPylmSp7lrvDQtaiBXdvndDfrxn60vE" title="Hallo Deutsch Buch 1 Aussprachetraining"><img width="100px" src="https://i.ytimg.com/vi/qa6lK5AofwE/mqdefault.jpg" alt="Hallo Deutsch Buch 1 Aussprachetraining"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLvGPylmSp7lrvDQtaiBXdvndDfrxn60vE" title="Hallo Deutsch Buch 1 Aussprachetraining">Hallo Deutsch Buch 1 Aussprachetraining</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=34" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>35</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLS0gFavbtDzGo7jUvaAOGV-lrr8v7HQvL" title="Deutsch Phonetik"><img width="100px" src="https://i.ytimg.com/vi/KGstphq2sLo/mqdefault.jpg" alt="Deutsch Phonetik"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLS0gFavbtDzGo7jUvaAOGV-lrr8v7HQvL" title="Deutsch Phonetik">Deutsch Phonetik</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>16</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=35" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>36</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5mK_rWeyH4HBKlffUdrfKHdZSWkVTpZo" title="German pronunciation"><img width="100px" src="https://i.ytimg.com/vi/BxaoZFpkKRI/mqdefault.jpg" alt="German pronunciation"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5mK_rWeyH4HBKlffUdrfKHdZSWkVTpZo" title="German pronunciation">German pronunciation</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=36" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>37</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLcjHfh16EeH29xnHCe9bwsfJZHDD-HNDi" title="German pronunciation"><img width="100px" src="https://i.ytimg.com/vi/4DnNVi1qCyQ/mqdefault.jpg" alt="German pronunciation"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLcjHfh16EeH29xnHCe9bwsfJZHDD-HNDi" title="German pronunciation">German pronunciation</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>22</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=37" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>38</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLU6oUZlKAyKtswWw___P7wt2ZpXQeVyfN" title="Aussprache - Pronunciation"><img width="100px" src="https://i.ytimg.com/vi/zlf_S4P47oI/mqdefault.jpg" alt="Aussprache - Pronunciation"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLU6oUZlKAyKtswWw___P7wt2ZpXQeVyfN" title="Aussprache - Pronunciation">Aussprache - Pronunciation</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>6</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=38" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>39</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLTvFTxkaQpg40iLdjkK53KTVjJmoxMx5R" title="Phonetik deutsch"><img width="100px" src="https://i.ytimg.com/vi/mKbcDYszrmM/mqdefault.jpg" alt="Phonetik deutsch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLTvFTxkaQpg40iLdjkK53KTVjJmoxMx5R" title="Phonetik deutsch">Phonetik deutsch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=39" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>40</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL386E5A65F7017445" title="German pronunciation"><img width="100px" src="https://i.ytimg.com/vi/5B1E0MpZ2yc/mqdefault.jpg" alt="German pronunciation"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL386E5A65F7017445" title="German pronunciation">German pronunciation</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>17</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=40" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>84</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLikxyuVhbpThLLKCAH_hk_D0Krs3hdBkP" title="Deutsch lernen Wortschatz - german word pool"><img width="100px" src="https://i.ytimg.com/vi/1qN599s5lOw/mqdefault.jpg" alt="Deutsch lernen Wortschatz - german word pool"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLikxyuVhbpThLLKCAH_hk_D0Krs3hdBkP" title="Deutsch lernen Wortschatz - german word pool">Deutsch lernen Wortschatz - german word pool</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>1</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=84" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>85</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWgFDsVTW9rYBxxw0HjQcdAt" title="Wortschatz (Niveau B1)"><img width="100px" src="https://i.ytimg.com/vi/GBMqHM3IDZc/mqdefault.jpg" alt="Wortschatz (Niveau B1)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWgFDsVTW9rYBxxw0HjQcdAt" title="Wortschatz (Niveau B1)">Wortschatz (Niveau B1)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=85" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>86</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLymoc6tyi8vsbeNdE7gOWT0ZC7k7_1Myv" title=" Wortschatz lernen | German Vocabulary"><img width="100px" src="https://i.ytimg.com/vi/V1C4V67hJnA/mqdefault.jpg" alt=" Wortschatz lernen | German Vocabulary"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLymoc6tyi8vsbeNdE7gOWT0ZC7k7_1Myv" title=" Wortschatz lernen | German Vocabulary"> Wortschatz lernen | German Vocabulary</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>11</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=86" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>87</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLID3ddg2-Aj7_mVRGkcMmKnQP-L99Womz" title="German Vocabulary | Deutsch Vokabeln"><img width="100px" src="https://i.ytimg.com/vi/Zhz2S8GXAyA/mqdefault.jpg" alt="German Vocabulary | Deutsch Vokabeln"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLID3ddg2-Aj7_mVRGkcMmKnQP-L99Womz" title="German Vocabulary | Deutsch Vokabeln">German Vocabulary | Deutsch Vokabeln</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=87" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>88</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL4Px5zDbVXyEZVZWjJ95mNikfFbs_Wvi7" title="Wir lernen deutsch wortschatz beim schlafen"><img width="100px" src="https://i.ytimg.com/vi/jFT4LduSoZ0/mqdefault.jpg" alt="Wir lernen deutsch wortschatz beim schlafen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL4Px5zDbVXyEZVZWjJ95mNikfFbs_Wvi7" title="Wir lernen deutsch wortschatz beim schlafen">Wir lernen deutsch wortschatz beim schlafen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=88" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>90</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL4XqNxB4iGlnnXJoRfhkMeC5c6pMDNiIO" title="Deutsch lernen A1 - A2 - Wortschatz thematisch"><img width="100px" src="https://i.ytimg.com/vi/1JatcvKN0e4/mqdefault.jpg" alt="Deutsch lernen A1 - A2 - Wortschatz thematisch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL4XqNxB4iGlnnXJoRfhkMeC5c6pMDNiIO" title="Deutsch lernen A1 - A2 - Wortschatz thematisch">Deutsch lernen A1 - A2 - Wortschatz thematisch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=90" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>91</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL0BEB2B87D63F7A45" title="Deutsch lesen lernen"><img width="100px" src="https://i.ytimg.com/vi/zZAWygYoN30/mqdefault.jpg" alt="Deutsch lesen lernen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL0BEB2B87D63F7A45" title="Deutsch lesen lernen">Deutsch lesen lernen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=91" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>92</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6FkiGmc3T1WHdPVPA0otrvPsTlM9aM_h" title="Lass uns Deutsch Sprechen"><img width="100px" src="https://i.ytimg.com/vi/8k9VU4tBXIQ/mqdefault.jpg" alt="Lass uns Deutsch Sprechen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6FkiGmc3T1WHdPVPA0otrvPsTlM9aM_h" title="Lass uns Deutsch Sprechen">Lass uns Deutsch Sprechen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>16</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=92" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>93</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi8BB2JprhjuAfyAOmnohw-X" title="Deutsche Dialoge für Anfänger und Fortgeschrittene"><img width="100px" src="https://i.ytimg.com/vi/J14qUITh824/mqdefault.jpg" alt="Deutsche Dialoge für Anfänger und Fortgeschrittene"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi8BB2JprhjuAfyAOmnohw-X" title="Deutsche Dialoge für Anfänger und Fortgeschrittene">Deutsche Dialoge für Anfänger und Fortgeschrittene</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=93" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>94</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-5oE-OrfXHOK9-U3TGWm0a" title="Hören und Sprechen | A1-A2-B1 | mit Untertiteln"><img width="100px" src="https://i.ytimg.com/vi/tCjfIIPrwSM/mqdefault.jpg" alt="Hören und Sprechen | A1-A2-B1 | mit Untertiteln"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-5oE-OrfXHOK9-U3TGWm0a" title="Hören und Sprechen | A1-A2-B1 | mit Untertiteln">Hören und Sprechen | A1-A2-B1 | mit Untertiteln</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>3</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=94" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>95</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLN4pbwdnSOiuaXj4006GNKYh2hBYCFL3E" title="German sprechen b1"><img width="100px" src="https://i.ytimg.com/vi/FxVb-UMSPj8/mqdefault.jpg" alt="German sprechen b1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLN4pbwdnSOiuaXj4006GNKYh2hBYCFL3E" title="German sprechen b1">German sprechen b1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10" title="see 10">10</a></td>
+	  <td>7</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=10" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=95" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>96</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLq9jzZwezNaiKpVITGRU8nXsXpucCyesU" title="Mündliche Prüfung B1"><img width="100px" src="https://i.ytimg.com/vi/zd06ieeM5Ko/mqdefault.jpg" alt="Mündliche Prüfung B1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLq9jzZwezNaiKpVITGRU8nXsXpucCyesU" title="Mündliche Prüfung B1">Mündliche Prüfung B1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>14</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=96" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>97</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLhzqPcG8nSHajafQ7LqWN-da__AUWBNz1" title="Deutsch Prüfung sprechen"><img width="100px" src="https://i.ytimg.com/vi/zd06ieeM5Ko/mqdefault.jpg" alt="Deutsch Prüfung sprechen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLhzqPcG8nSHajafQ7LqWN-da__AUWBNz1" title="Deutsch Prüfung sprechen">Deutsch Prüfung sprechen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>13</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=97" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>98</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLmsbcDaKqsqo96zhA2wxqGgijfOYSqP6X" title="Deutsch Hören für die Prüfung"><img width="100px" src="https://i.ytimg.com/vi/fKXY7wjeInQ/mqdefault.jpg" alt="Deutsch Hören für die Prüfung"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLmsbcDaKqsqo96zhA2wxqGgijfOYSqP6X" title="Deutsch Hören für die Prüfung">Deutsch Hören für die Prüfung</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=98" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>99</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLK-QEY18Oe8QHuy9Y1ZUMOi_rOwZnSvVL" title="Mündliche Prüfung-Deutsch"><img width="100px" src="https://i.ytimg.com/vi/3hPns0XBOCs/mqdefault.jpg" alt="Mündliche Prüfung-Deutsch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLK-QEY18Oe8QHuy9Y1ZUMOi_rOwZnSvVL" title="Mündliche Prüfung-Deutsch">Mündliche Prüfung-Deutsch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>13</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=99" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>100</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLLf150izqwPvmU4HVtE7FDAk5OO_3IfhJ" title="B2 Prüfung"><img width="100px" src="https://i.ytimg.com/vi/XH8LqndlHHQ/mqdefault.jpg" alt="B2 Prüfung"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLLf150izqwPvmU4HVtE7FDAk5OO_3IfhJ" title="B2 Prüfung">B2 Prüfung</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=100" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>101</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLMcaBHGeLiPD3l-x0yli04rELpy9KYava" title="B1 sprechen Prüfung"><img width="100px" src="https://i.ytimg.com/vi/FxVb-UMSPj8/mqdefault.jpg" alt="B1 sprechen Prüfung"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLMcaBHGeLiPD3l-x0yli04rELpy9KYava" title="B1 sprechen Prüfung">B1 sprechen Prüfung</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>10</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=101" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>102</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLqLW-6elh2Q2ktY_wjeEAx7qtHGnEzKhQ" title="B1 Prüfung"><img width="100px" src="https://i.ytimg.com/vi/aGNd-6pDkEI/mqdefault.jpg" alt="B1 Prüfung"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLqLW-6elh2Q2ktY_wjeEAx7qtHGnEzKhQ" title="B1 Prüfung">B1 Prüfung</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>17</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=102" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>103</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLMRUs2wE8m6PSqbgM0DpV1vblgflQ-gXP" title="Deutsche Songs 2017"><img width="100px" src="https://i.ytimg.com/vi/4bvlS1NHOU4/mqdefault.jpg" alt="Deutsche Songs 2017"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLMRUs2wE8m6PSqbgM0DpV1vblgflQ-gXP" title="Deutsche Songs 2017">Deutsche Songs 2017</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=103" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>104</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLDl7JofqmDnHdrMEKOA9grAkiz3JApWhz" title="Deutsche Musik"><img width="100px" src="https://i.ytimg.com/vi/4wOoLLDXbDY/mqdefault.jpg" alt="Deutsche Musik"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLDl7JofqmDnHdrMEKOA9grAkiz3JApWhz" title="Deutsche Musik">Deutsche Musik</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=104" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>105</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLc6OoqL0xc0ayk2bl5VY_3p-_x3M2E4w-" title="Disney Songs (German)"><img width="100px" src="https://i.ytimg.com/vi/v_EWWyJfgPc/mqdefault.jpg" alt="Disney Songs (German)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLc6OoqL0xc0ayk2bl5VY_3p-_x3M2E4w-" title="Disney Songs (German)">Disney Songs (German)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=105" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>106</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLB6EAFFC0F9098D77" title="Chart-Songs auf Deutsch"><img width="100px" src="https://i.ytimg.com/vi/xivkBBD3lGk/mqdefault.jpg" alt="Chart-Songs auf Deutsch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLB6EAFFC0F9098D77" title="Chart-Songs auf Deutsch">Chart-Songs auf Deutsch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=106" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>107</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL17FF9A2714E02EE5" title="Best German Songs"><img width="100px" src="https://i.ytimg.com/vi/wCcJuN47UcY/mqdefault.jpg" alt="Best German Songs"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL17FF9A2714E02EE5" title="Best German Songs">Best German Songs</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>19</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=107" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>108</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLR5ur4JihiCKESCsaooRK--oMNCzsxA_w" title="Deutsche Filme mit Untertiteln"><img width="100px" src="https://i.ytimg.com/vi/jcdGLP6y12E/mqdefault.jpg" alt="Deutsche Filme mit Untertiteln"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLR5ur4JihiCKESCsaooRK--oMNCzsxA_w" title="Deutsche Filme mit Untertiteln">Deutsche Filme mit Untertiteln</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>8</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=108" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>109</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLD-sZELIU8kD2Qpdi6ApttREHO1SvmzIY" title="Alvin und die Chipmunks deutsch"><img width="100px" src="https://i.ytimg.com/vi/loWuHNBM61U/mqdefault.jpg" alt="Alvin und die Chipmunks deutsch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLD-sZELIU8kD2Qpdi6ApttREHO1SvmzIY" title="Alvin und die Chipmunks deutsch">Alvin und die Chipmunks deutsch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>24</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=109" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>110</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLgZER3u1G5evv_8HcUjKxvZJjDzWXBPVz" title="Ganze FILME in DEUTSCH"><img width="100px" src="https://i.ytimg.com/vi/JpPxYnsKRP8/mqdefault.jpg" alt="Ganze FILME in DEUTSCH"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLgZER3u1G5evv_8HcUjKxvZJjDzWXBPVz" title="Ganze FILME in DEUTSCH">Ganze FILME in DEUTSCH</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=110" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>111</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5C758F21509F2781" title="Filme (Deutsch / German)"><img width="100px" src="https://i.ytimg.com/vi/ajNDWg51y1A/mqdefault.jpg" alt="Filme (Deutsch / German)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5C758F21509F2781" title="Filme (Deutsch / German)">Filme (Deutsch / German)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=111" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>112</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAqGU3Kf7Z66CUaVW4S45b_tcJbagaKx7" title="JACKIE CHAN - DRUNKEN MASTER"><img width="100px" src="https://i.ytimg.com/vi/dNsiHXdkSx0/mqdefault.jpg" alt="JACKIE CHAN - DRUNKEN MASTER"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAqGU3Kf7Z66CUaVW4S45b_tcJbagaKx7" title="JACKIE CHAN - DRUNKEN MASTER">JACKIE CHAN - DRUNKEN MASTER</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=112" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>113</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLfEblejE-l3laiRUSzcFHXCN_h0IPn_u1" title="Arthousekino"><img width="100px" src="https://i.ytimg.com/vi/x9hMaq0ySfM/mqdefault.jpg" alt="Arthousekino"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLfEblejE-l3laiRUSzcFHXCN_h0IPn_u1" title="Arthousekino">Arthousekino</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>24</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=113" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>114</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLfEblejE-l3k5xxDsBiKVhdNqWAuCIYRr" title="Kinderfilme"><img width="100px" src="https://i.ytimg.com/vi/2eQfkEWMs2s/mqdefault.jpg" alt="Kinderfilme"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLfEblejE-l3k5xxDsBiKVhdNqWAuCIYRr" title="Kinderfilme">Kinderfilme</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>24</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=114" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>116</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8mc50BMiZwTtmvm5wSfT8fIj5T0tsFDJ" title="Findet Nemo deutsch."><img width="100px" src="https://i.ytimg.com/vi/M7Yz0n4uT6o/mqdefault.jpg" alt="Findet Nemo deutsch."></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8mc50BMiZwTtmvm5wSfT8fIj5T0tsFDJ" title="Findet Nemo deutsch.">Findet Nemo deutsch.</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>24</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=116" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>117</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLhYkTN74cEiNNXeE4Zk9trz6KCdmOl1Xe" title="Cars Autos Spielzeug"><img width="100px" src="https://i.ytimg.com/vi/Mh2TSrXf6Vo/mqdefault.jpg" alt="Cars Autos Spielzeug"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLhYkTN74cEiNNXeE4Zk9trz6KCdmOl1Xe" title="Cars Autos Spielzeug">Cars Autos Spielzeug</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>11</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=117" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>118</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAB_6cCUA0M5h-ajfvkCdXq18WdaejQDA" title="Ganze Filme für kinder"><img width="100px" src="https://i.ytimg.com/vi/gfVHUE4HYHQ/mqdefault.jpg" alt="Ganze Filme für kinder"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAB_6cCUA0M5h-ajfvkCdXq18WdaejQDA" title="Ganze Filme für kinder">Ganze Filme für kinder</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>10</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=118" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>119</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLGfRvr-0Xu50-nzprgldAPJ6Anx_W-OD6" title="Vaiana Kinderfilme Deutsch Ganzer Film"><img width="100px" src="https://i.ytimg.com/vi/PcyxWLfkqNs/mqdefault.jpg" alt="Vaiana Kinderfilme Deutsch Ganzer Film"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLGfRvr-0Xu50-nzprgldAPJ6Anx_W-OD6" title="Vaiana Kinderfilme Deutsch Ganzer Film">Vaiana Kinderfilme Deutsch Ganzer Film</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=14" title="see 14">14</a></td>
+	  <td>22</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=14" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=119" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>121</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAQYhIluOMsFhr7vim_GyxjXHBGYqCgHJ" title="DSH prufung"><img width="100px" src="https://i.ytimg.com/vi/B8VN2keDjzk/mqdefault.jpg" alt="DSH prufung"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAQYhIluOMsFhr7vim_GyxjXHBGYqCgHJ" title="DSH prufung">DSH prufung</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15" title="see 15">15</a></td>
+	  <td>15</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=15" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=121" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>122</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6W0-QvxfTyNLr1MILDMBiUfjcSDLHMuC" title="DSH-PRÜFUNG"><img width="100px" src="https://i.ytimg.com/vi/JRTXeE0pIn0/mqdefault.jpg" alt="DSH-PRÜFUNG"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6W0-QvxfTyNLr1MILDMBiUfjcSDLHMuC" title="DSH-PRÜFUNG">DSH-PRÜFUNG</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15" title="see 15">15</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=15" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=122" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>123</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRRlNmx9sxLE4StSviNDLo3" title="DSH-Modalltest"><img width="100px" src="https://i.ytimg.com/vi/GhAXJ0BLy74/mqdefault.jpg" alt="DSH-Modalltest"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRRlNmx9sxLE4StSviNDLo3" title="DSH-Modalltest">DSH-Modalltest</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15" title="see 15">15</a></td>
+	  <td>16</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=15" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=123" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>124</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_ZFk08mOlNcY8S1GF0U1Z4" title="Themen zur TestDaF- und DSH-Vorbereitung"><img width="100px" src="https://i.ytimg.com/vi/T5tnRLt0nXw/mqdefault.jpg" alt="Themen zur TestDaF- und DSH-Vorbereitung"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_ZFk08mOlNcY8S1GF0U1Z4" title="Themen zur TestDaF- und DSH-Vorbereitung">Themen zur TestDaF- und DSH-Vorbereitung</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15" title="see 15">15</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=15" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=124" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>125</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLII8WdL8T4qKTuQ6ME2qQ96iEO1Y1e5Im" title="Zehn Schritte zu deinem Studium in Deutschland"><img width="100px" src="https://i.ytimg.com/vi/JZZEygd7L4k/mqdefault.jpg" alt="Zehn Schritte zu deinem Studium in Deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLII8WdL8T4qKTuQ6ME2qQ96iEO1Y1e5Im" title="Zehn Schritte zu deinem Studium in Deutschland">Zehn Schritte zu deinem Studium in Deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>10</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=125" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>126</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL983422A0DD5C355E" title="Studieren in Deutschland"><img width="100px" src="https://i.ytimg.com/vi/oWem4XLK57w/mqdefault.jpg" alt="Studieren in Deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL983422A0DD5C355E" title="Studieren in Deutschland">Studieren in Deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=126" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>128</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL7SijlHyQmVU7NNYo-DqChPDmurcEQVhS" title="Leben in Deutschland"><img width="100px" src="https://i.ytimg.com/vi/Rl4SnuFEpo0/mqdefault.jpg" alt="Leben in Deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL7SijlHyQmVU7NNYo-DqChPDmurcEQVhS" title="Leben in Deutschland">Leben in Deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=128" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>129</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL_6Te8b2SyX5TYY-EkawuL5dGQAo26L37" title="Leben in Deutschland"><img width="100px" src="https://i.ytimg.com/vi/Qq7dD67Zy0Q/mqdefault.jpg" alt="Leben in Deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL_6Te8b2SyX5TYY-EkawuL5dGQAo26L37" title="Leben in Deutschland">Leben in Deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=129" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>130</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLd1gbe0TDjwejyDzWAz6qHtRs6xNheJSc" title="Leben in Deutschland"><img width="100px" src="https://i.ytimg.com/vi/xgQWa89crYM/mqdefault.jpg" alt="Leben in Deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLd1gbe0TDjwejyDzWAz6qHtRs6xNheJSc" title="Leben in Deutschland">Leben in Deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=130" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>132</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLxO_Xlj8fCYTJzDmeiWHLcSJhIvSRYlxy" title="Zahlen"><img width="100px" src="https://i.ytimg.com/vi/SMeRMTo1FIY/mqdefault.jpg" alt="Zahlen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLxO_Xlj8fCYTJzDmeiWHLcSJhIvSRYlxy" title="Zahlen">Zahlen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=18" title="see 18">18</a></td>
+	  <td>3</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=18" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=132" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>133</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlF6wdAQ8FG4ib-woaEKvewszgcaufpDK" title="Die Knallerfrau beim Einkaufen"><img width="100px" src="https://i.ytimg.com/vi/cSqsk9o7DNQ/mqdefault.jpg" alt="Die Knallerfrau beim Einkaufen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlF6wdAQ8FG4ib-woaEKvewszgcaufpDK" title="Die Knallerfrau beim Einkaufen">Die Knallerfrau beim Einkaufen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>22</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=133" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>134</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAiY_JB7SmbvFbnfwZPiRQDeu0RMB5MKN" title="Ich gehe einkaufen - Shopping mit Marie"><img width="100px" src="https://i.ytimg.com/vi/2FFbpA_r7Nw/mqdefault.jpg" alt="Ich gehe einkaufen - Shopping mit Marie"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLAiY_JB7SmbvFbnfwZPiRQDeu0RMB5MKN" title="Ich gehe einkaufen - Shopping mit Marie">Ich gehe einkaufen - Shopping mit Marie</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=134" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>135</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLBC8AFFC64EC11B2F" title="Einkaufen"><img width="100px" src="https://i.ytimg.com/vi/goIHyeym4Uk/mqdefault.jpg" alt="Einkaufen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLBC8AFFC64EC11B2F" title="Einkaufen">Einkaufen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=135" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>136</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLs7zUO7VPyJ4n_NHqdH4mEXMgXzGU3cLl" title="Deutsch lernen (B2/C1) | Essen & Trinken"><img width="100px" src="https://i.ytimg.com/vi/_6cZ438aLp0/mqdefault.jpg" alt="Deutsch lernen (B2/C1) | Essen & Trinken"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLs7zUO7VPyJ4n_NHqdH4mEXMgXzGU3cLl" title="Deutsch lernen (B2/C1) | Essen & Trinken">Deutsch lernen (B2/C1) | Essen & Trinken</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=136" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>137</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLh8Rf9w_XAtq_7aCuZa-WatOMVNqYKDcd" title="Deutsches Essen"><img width="100px" src="https://i.ytimg.com/vi/kJXYKlPAf84/mqdefault.jpg" alt="Deutsches Essen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLh8Rf9w_XAtq_7aCuZa-WatOMVNqYKDcd" title="Deutsches Essen">Deutsches Essen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=137" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>138</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6F75E18FAEE472E8" title="Essen in Deutschland"><img width="100px" src="https://i.ytimg.com/vi/V0le3XoBP2E/mqdefault.jpg" alt="Essen in Deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6F75E18FAEE472E8" title="Essen in Deutschland">Essen in Deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>16</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=138" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>139</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLEAB17B2CD76E5C72" title="Deutsch: Essen und Trinken"><img width="100px" src="https://i.ytimg.com/vi/7TIqMlhyLtE/mqdefault.jpg" alt="Deutsch: Essen und Trinken"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLEAB17B2CD76E5C72" title="Deutsch: Essen und Trinken">Deutsch: Essen und Trinken</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>15</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=139" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>140</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLb2_rJgMKJABkUHr-RM6oiWUfLQo6Z527" title="job in deutschland"><img width="100px" src="https://i.ytimg.com/vi/_JjMlTsLSOU/mqdefault.jpg" alt="job in deutschland"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLb2_rJgMKJABkUHr-RM6oiWUfLQo6Z527" title="job in deutschland">job in deutschland</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21" title="see 21">21</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=21" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=140" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>141</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLyhcIoD20wyQCcWUTywBbX1MyVmyC4hAv" title="Job & Career Guideance in Germany"><img width="100px" src="https://i.ytimg.com/vi/UCtXR6S6rcg/mqdefault.jpg" alt="Job & Career Guideance in Germany"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLyhcIoD20wyQCcWUTywBbX1MyVmyC4hAv" title="Job & Career Guideance in Germany">Job & Career Guideance in Germany</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21" title="see 21">21</a></td>
+	  <td>13</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=21" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=141" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>142</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLQOs5TrafDWssATxQPttfSKFGyo0m_lnC" title="architecture jobs in germany"><img width="100px" src="https://i.ytimg.com/vi/ib0jo_S_XnA/mqdefault.jpg" alt="architecture jobs in germany"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLQOs5TrafDWssATxQPttfSKFGyo0m_lnC" title="architecture jobs in germany">architecture jobs in germany</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21" title="see 21">21</a></td>
+	  <td>6</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=21" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=142" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>143</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLtB1MJSQL5hRUYwbHAPKs_WBvJ4F3XYbj" title="Krankheiten erklärt "><img width="100px" src="https://i.ytimg.com/vi/JOFWWn7LKNQ/mqdefault.jpg" alt="Krankheiten erklärt "></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLtB1MJSQL5hRUYwbHAPKs_WBvJ4F3XYbj" title="Krankheiten erklärt ">Krankheiten erklärt </a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=22" title="see 22">22</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=22" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=143" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>144</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLMFRnFegTKScDc9F5uCJgAlUx1hqpZ2pp" title="Rätselhafte Krankheiten"><img width="100px" src="https://i.ytimg.com/vi/tZt4W_ScW98/mqdefault.jpg" alt="Rätselhafte Krankheiten"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLMFRnFegTKScDc9F5uCJgAlUx1hqpZ2pp" title="Rätselhafte Krankheiten">Rätselhafte Krankheiten</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=22" title="see 22">22</a></td>
+	  <td>19</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=22" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=144" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>145</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL_Zn2F7e-5Z-TFFFP9q1k5lDFubXGW0GK" title="T - Gesundheit und Krankheit"><img width="100px" src="https://i.ytimg.com/vi/D9yOMCn3ZHQ/mqdefault.jpg" alt="T - Gesundheit und Krankheit"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL_Zn2F7e-5Z-TFFFP9q1k5lDFubXGW0GK" title="T - Gesundheit und Krankheit">T - Gesundheit und Krankheit</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=22" title="see 22">22</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=22" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=145" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>146</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL3E9591E3260835BC" title="Learn German - German Vegetable Vocabulary"><img width="100px" src="https://i.ytimg.com/vi/dG9DlK0Sw1g/mqdefault.jpg" alt="Learn German - German Vegetable Vocabulary"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL3E9591E3260835BC" title="Learn German - German Vegetable Vocabulary">Learn German - German Vegetable Vocabulary</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>24</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=146" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>147</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLwFpFCf8dJh1F3fGwdn0lUfUiFQVAeeXR" title="Audiobook Flüsterherz Whisper reading in German"><img width="100px" src="https://i.ytimg.com/vi/py3dhTLubt0/mqdefault.jpg" alt="Audiobook Flüsterherz Whisper reading in German"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLwFpFCf8dJh1F3fGwdn0lUfUiFQVAeeXR" title="Audiobook Flüsterherz Whisper reading in German">Audiobook Flüsterherz Whisper reading in German</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>7</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=147" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>149</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLA56B0887E5549FC0" title="German reading"><img width="100px" src="https://i.ytimg.com/vi/qLok8Qnve3c/mqdefault.jpg" alt="German reading"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLA56B0887E5549FC0" title="German reading">German reading</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>22</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=149" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>150</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLIGa-eWCssj_dcE9GXkpLSFB9t8qZyZn2" title="Get Started With Readlang"><img width="100px" src="https://i.ytimg.com/vi/5vl6Q695VnU/mqdefault.jpg" alt="Get Started With Readlang"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLIGa-eWCssj_dcE9GXkpLSFB9t8qZyZn2" title="Get Started With Readlang">Get Started With Readlang</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>7</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=150" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>151</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL3dSKrsRNFSYONUczRnbgYpnNMe14vFCb" title="reading advanced german"><img width="100px" src="https://i.ytimg.com/vi/q9Z6DlO4FuE/mqdefault.jpg" alt="reading advanced german"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL3dSKrsRNFSYONUczRnbgYpnNMe14vFCb" title="reading advanced german">reading advanced german</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=151" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>152</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL74B61768374CE285" title="OSHO Talks (German subtitles)"><img width="100px" src="https://i.ytimg.com/vi/6D7rWLzloOI/mqdefault.jpg" alt="OSHO Talks (German subtitles)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL74B61768374CE285" title="OSHO Talks (German subtitles)">OSHO Talks (German subtitles)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=152" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>153</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8PwfU8m5_how4FQMKfzPK1MTrHV7aGhT" title="Tam Nguyen"><img width="100px" src="https://i.ytimg.com/vi/KQ77Ers65tA/mqdefault.jpg" alt="Tam Nguyen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8PwfU8m5_how4FQMKfzPK1MTrHV7aGhT" title="Tam Nguyen">Tam Nguyen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7" title="see 7">7</a></td>
+	  <td>20</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=7" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=153" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>154</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8PwfU8m5_hrtL2-b-fqtv4l2-HnAG1fM" title="Tam Nguyen"><img width="100px" src="https://i.ytimg.com/vi/ON0QUKZdpcM/mqdefault.jpg" alt="Tam Nguyen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8PwfU8m5_hrtL2-b-fqtv4l2-HnAG1fM" title="Tam Nguyen">Tam Nguyen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=154" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>155</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLquImyRfMt6cf3x7J_Xz6fSUJuZ2WA-dA" title="Goethe-Institut"><img width="100px" src="https://i.ytimg.com/vi/QOKnRbq9Fng/mqdefault.jpg" alt="Goethe-Institut"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLquImyRfMt6cf3x7J_Xz6fSUJuZ2WA-dA" title="Goethe-Institut">Goethe-Institut</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=17" title="see 17">17</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=17" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=155" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>156</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLH1HXUNplPl8PazRIbZzX2jRubhiDyJrZ" title="Deutsch lernen Extra auf Deutsch"><img width="100px" src="https://i.ytimg.com/vi/SPjhwtJYnIk/mqdefault.jpg" alt="Deutsch lernen Extra auf Deutsch"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLH1HXUNplPl8PazRIbZzX2jRubhiDyJrZ" title="Deutsch lernen Extra auf Deutsch">Deutsch lernen Extra auf Deutsch</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13" title="see 13">13</a></td>
+	  <td>13</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=13" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=156" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>157</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5QyCnFPRx0FQ1eIaqLhvgzx8SrCxecDs" title="Learn German with Jenny"><img width="100px" src="https://i.ytimg.com/vi/tPR8h_uhtQ4/mqdefault.jpg" alt="Learn German with Jenny"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL5QyCnFPRx0FQ1eIaqLhvgzx8SrCxecDs" title="Learn German with Jenny">Learn German with Jenny</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=157" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>158</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL55DXLMa-PBYj7OPcZPseISbaYqWiLgNV" title="Anva Lee"><img width="100px" src="https://i.ytimg.com/vi/8JExJsihOfA/mqdefault.jpg" alt="Anva Lee"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL55DXLMa-PBYj7OPcZPseISbaYqWiLgNV" title="Anva Lee">Anva Lee</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=158" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>160</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlTfs34h2f3AEecr7tVkZxq9xJ9Fju7Ns" title="sonny zano"><img width="100px" src="https://i.ytimg.com/vi/FxVb-UMSPj8/mqdefault.jpg" alt="sonny zano"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlTfs34h2f3AEecr7tVkZxq9xJ9Fju7Ns" title="sonny zano">sonny zano</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11" title="see 11">11</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=11" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=160" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>168</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRK4wW4DLQ_Bue59oItncMz" title="Deutsch lernen durch Hören"><img width="100px" src="https://i.ytimg.com/vi/a_JSDAOmwWU/mqdefault.jpg" alt="Deutsch lernen durch Hören"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRK4wW4DLQ_Bue59oItncMz" title="Deutsch lernen durch Hören">Deutsch lernen durch Hören</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15" title="see 15">15</a></td>
+	  <td>1</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=15" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=168" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>171</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg" title="Nicos Weg – Einfach Deutsch lernen"><img width="100px" src="https://i.ytimg.com/vi/dC6ZGLzdaTs/mqdefault.jpg" alt="Nicos Weg – Einfach Deutsch lernen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg" title="Nicos Weg – Einfach Deutsch lernen">Nicos Weg – Einfach Deutsch lernen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=171" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>172</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLZjUkMf_Yhs6omCKIrcwjBvG-HGS5pWGF" title="Biene Maja Kinderlieder-Mix zum Mitsingen (10 Min. Kinder-Video)"><img width="100px" src="https://i.ytimg.com/vi/n2FHn3B0K4U/mqdefault.jpg" alt="Biene Maja Kinderlieder-Mix zum Mitsingen (10 Min. Kinder-Video)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLZjUkMf_Yhs6omCKIrcwjBvG-HGS5pWGF" title="Biene Maja Kinderlieder-Mix zum Mitsingen (10 Min. Kinder-Video)">Biene Maja Kinderlieder-Mix zum Mitsingen (10 Min. Kinder-Video)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>21</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=172" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>173</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLva2B4IP5tpFhnylgR70bmybGeXmpWYlA" title="Deutsch lernen – Deutschkurs A1 – Thema 01/20: Persönliche Informationen"><img width="100px" src="https://i.ytimg.com/vi/K7Qqj8Irqpo/mqdefault.jpg" alt="Deutsch lernen – Deutschkurs A1 – Thema 01/20: Persönliche Informationen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLva2B4IP5tpFhnylgR70bmybGeXmpWYlA" title="Deutsch lernen – Deutschkurs A1 – Thema 01/20: Persönliche Informationen">Deutsch lernen – Deutschkurs A1 – Thema 01/20: Persönliche Informationen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=173" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>174</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLEByPi2gBp1SThXGFx_9h57mB7YjagALp" title="Stereoact feat. Kerstin Ott - Die Immer Lacht (Official Video HD)"><img width="100px" src="https://i.ytimg.com/vi/Bkj3IVIO2Os/mqdefault.jpg" alt="Stereoact feat. Kerstin Ott - Die Immer Lacht (Official Video HD)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLEByPi2gBp1SThXGFx_9h57mB7YjagALp" title="Stereoact feat. Kerstin Ott - Die Immer Lacht (Official Video HD)">Stereoact feat. Kerstin Ott - Die Immer Lacht (Official Video HD)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>15</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=174" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>175</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=RD7ZkejDqTuSM" title="Helene Fischer mit Atemlos durch die Nacht - Hello Again"><img width="100px" src="https://i.ytimg.com/vi/7ZkejDqTuSM/mqdefault.jpg" alt="Helene Fischer mit Atemlos durch die Nacht - Hello Again"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=RD7ZkejDqTuSM" title="Helene Fischer mit Atemlos durch die Nacht - Hello Again">Helene Fischer mit Atemlos durch die Nacht - Hello Again</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=175" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>176</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=RDQMWdawFRtvzno" title="Lena - Satellite (Germany)"><img width="100px" src="https://i.ytimg.com/vi/8QSgNM9yNjo/mqdefault.jpg" alt="Lena - Satellite (Germany)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=RDQMWdawFRtvzno" title="Lena - Satellite (Germany)">Lena - Satellite (Germany)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12" title="see 12">12</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=12" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=176" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>177</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL4DC166FFF0C9B602" title="Learn German - Lesson 1"><img width="100px" src="https://i.ytimg.com/vi/zZAWygYoN30/mqdefault.jpg" alt="Learn German - Lesson 1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL4DC166FFF0C9B602" title="Learn German - Lesson 1">Learn German - Lesson 1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>15</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=177" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>178</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_2gp2SvVEWLD0QItYO4hAp" title="German Listening B2 | Hörverstehen B2 | #1"><img width="100px" src="https://i.ytimg.com/vi/kyELlx_QKY4/mqdefault.jpg" alt="German Listening B2 | Hörverstehen B2 | #1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_2gp2SvVEWLD0QItYO4hAp" title="German Listening B2 | Hörverstehen B2 | #1">German Listening B2 | Hörverstehen B2 | #1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>12</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=178" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>179</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-ijSkgULtNyEZj-aFarkrN" title="Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4"><img width="100px" src="https://i.ytimg.com/vi/SBrOJs1VHUg/mqdefault.jpg" alt="Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-ijSkgULtNyEZj-aFarkrN" title="Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4">Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>6</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=179" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>180</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi9_v3jkQ4l8YcguTKo1Mvny" title="Zertifikat Deutsch C1 Teil Hörverstehen"><img width="100px" src="https://i.ytimg.com/vi/8_20qXsBFGk/mqdefault.jpg" alt="Zertifikat Deutsch C1 Teil Hörverstehen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi9_v3jkQ4l8YcguTKo1Mvny" title="Zertifikat Deutsch C1 Teil Hörverstehen">Zertifikat Deutsch C1 Teil Hörverstehen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>1</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=180" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>181</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_TkFLjRXJhhaHulwHYHrw7" title="Hörverstehen für Oberstufe #1 | C1-DAF-DSH"><img width="100px" src="https://i.ytimg.com/vi/IeChX1tXp00/mqdefault.jpg" alt="Hörverstehen für Oberstufe #1 | C1-DAF-DSH"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_TkFLjRXJhhaHulwHYHrw7" title="Hörverstehen für Oberstufe #1 | C1-DAF-DSH">Hörverstehen für Oberstufe #1 | C1-DAF-DSH</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=181" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>182</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_z41JEgMsTfnC2djLR_jnx" title="TestDaF | DSH vorbereitung | Hörtext 1"><img width="100px" src="https://i.ytimg.com/vi/MVNZMoRuIl8/mqdefault.jpg" alt="TestDaF | DSH vorbereitung | Hörtext 1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_z41JEgMsTfnC2djLR_jnx" title="TestDaF | DSH vorbereitung | Hörtext 1">TestDaF | DSH vorbereitung | Hörtext 1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=182" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>184</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-z_4EIiSAizY3ejlBXfBIo" title="Geschichte für Anfänger #1 | Deutsch lernen"><img width="100px" src="https://i.ytimg.com/vi/Ez0QyozJbEU/mqdefault.jpg" alt="Geschichte für Anfänger #1 | Deutsch lernen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-z_4EIiSAizY3ejlBXfBIo" title="Geschichte für Anfänger #1 | Deutsch lernen">Geschichte für Anfänger #1 | Deutsch lernen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=184" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>185</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_sEzNddza0oyt13kfp-Phv" title="Grammatikübungen №1"><img width="100px" src="https://i.ytimg.com/vi/5qnAt9hpizs/mqdefault.jpg" alt="Grammatikübungen №1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_sEzNddza0oyt13kfp-Phv" title="Grammatikübungen №1">Grammatikübungen №1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=185" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>188</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLikxyuVhbpTiv0PoNl754i0ZzxSNxp5kA" title="Deutsch Alphabet 1: A B C D"><img width="100px" src="https://i.ytimg.com/vi/2GPhT64Urms/mqdefault.jpg" alt="Deutsch Alphabet 1: A B C D"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLikxyuVhbpTiv0PoNl754i0ZzxSNxp5kA" title="Deutsch Alphabet 1: A B C D">Deutsch Alphabet 1: A B C D</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9" title="see 9">9</a></td>
+	  <td>10</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=9" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=188" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>189</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWi365DkBRe7yUbUq2eXBLBk" title="Das Obst, seine Farben und mehr"><img width="100px" src="https://i.ytimg.com/vi/CELY-tiAC0U/mqdefault.jpg" alt="Das Obst, seine Farben und mehr"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWi365DkBRe7yUbUq2eXBLBk" title="Das Obst, seine Farben und mehr">Das Obst, seine Farben und mehr</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>8</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=189" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>190</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWjQwgytx82R-LoSNDDoEMpR" title="Meine Freunde oder: sich und andere vorstellen (A1/A2)"><img width="100px" src="https://i.ytimg.com/vi/UrM6tub6ogI/mqdefault.jpg" alt="Meine Freunde oder: sich und andere vorstellen (A1/A2)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLlGpmm3wJaWjQwgytx82R-LoSNDDoEMpR" title="Meine Freunde oder: sich und andere vorstellen (A1/A2)">Meine Freunde oder: sich und andere vorstellen (A1/A2)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6" title="see 6">6</a></td>
+	  <td>11</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=6" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=190" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>191</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLs7zUO7VPyJ4RWezyZc4hfscMuIj7Bo20" title="Deutsch lernen (B2/C1) | Der Supermarkt der Zukunft"><img width="100px" src="https://i.ytimg.com/vi/aF72XXHw6JM/mqdefault.jpg" alt="Deutsch lernen (B2/C1) | Der Supermarkt der Zukunft"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLs7zUO7VPyJ4RWezyZc4hfscMuIj7Bo20" title="Deutsch lernen (B2/C1) | Der Supermarkt der Zukunft">Deutsch lernen (B2/C1) | Der Supermarkt der Zukunft</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>7</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=191" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>192</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL0_PHxmAeFDhgWVtz5rrqZiHf1yL9ZosW" title="Einkaufen in Australien"><img width="100px" src="https://i.ytimg.com/vi/0lrRQvOp3hI/mqdefault.jpg" alt="Einkaufen in Australien"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL0_PHxmAeFDhgWVtz5rrqZiHf1yL9ZosW" title="Einkaufen in Australien">Einkaufen in Australien</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19" title="see 19">19</a></td>
+	  <td>16</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=19" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=192" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>194</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8PwfU8m5_hputnMYsMHWGNOB50cH3ys5" title="Vlog 14 ? Was bedeutet Erfolg für dich? l Tam Nguyen l De l VN"><img width="100px" src="https://i.ytimg.com/vi/gl_l7r2Y3Ss/mqdefault.jpg" alt="Vlog 14 ? Was bedeutet Erfolg für dich? l Tam Nguyen l De l VN"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8PwfU8m5_hputnMYsMHWGNOB50cH3ys5" title="Vlog 14 ? Was bedeutet Erfolg für dich? l Tam Nguyen l De l VN">Vlog 14 ? Was bedeutet Erfolg für dich? l Tam Nguyen l De l VN</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=194" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>195</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLvzPnifJ_8sHMk7olHYkjw-M7ItHbUDBB" title="How to Study in Germany For Free - Scholarships in Germany for Indian Students Part 1 of 2 #ChetChat"><img width="100px" src="https://i.ytimg.com/vi/wCMOmN25L2Y/mqdefault.jpg" alt="How to Study in Germany For Free - Scholarships in Germany for Indian Students Part 1 of 2 #ChetChat"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLvzPnifJ_8sHMk7olHYkjw-M7ItHbUDBB" title="How to Study in Germany For Free - Scholarships in Germany for Indian Students Part 1 of 2 #ChetChat">How to Study in Germany For Free - Scholarships in Germany for Indian Students Part 1 of 2 #ChetChat</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>6</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=195" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>196</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8FBAF0FA1D60A2BC" title="Christmas Time in Germany"><img width="100px" src="https://i.ytimg.com/vi/b7AloZvU2BY/mqdefault.jpg" alt="Christmas Time in Germany"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8FBAF0FA1D60A2BC" title="Christmas Time in Germany">Christmas Time in Germany</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>4</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=196" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>198</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLzmz30ELUdLvwE4W897H3PpdI9872ybis" title="Studying in Germany"><img width="100px" src="https://i.ytimg.com/vi/7C_a9u2QFNg/mqdefault.jpg" alt="Studying in Germany"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLzmz30ELUdLvwE4W897H3PpdI9872ybis" title="Studying in Germany">Studying in Germany</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16" title="see 16">16</a></td>
+	  <td>16</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=16" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=198" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>199</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLg_KHB2Fiu4cjffqQBBmzXYYg8JKUORVD" title="Das sind die beliebtesten TV-Snacks | Galileo | ProSieben"><img width="100px" src="https://i.ytimg.com/vi/AXxiKAIupZ4/mqdefault.jpg" alt="Das sind die beliebtesten TV-Snacks | Galileo | ProSieben"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLg_KHB2Fiu4cjffqQBBmzXYYg8JKUORVD" title="Das sind die beliebtesten TV-Snacks | Galileo | ProSieben">Das sind die beliebtesten TV-Snacks | Galileo | ProSieben</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20" title="see 20">20</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=20" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=199" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>200</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLwvQdKyTste7kjVTbrwL2zUkwm4JZ7to1" title="Vattenfall bildet aus - Ausbildung zum Elektroniker für Automatisierungstechnik"><img width="100px" src="https://i.ytimg.com/vi/kGUt5kdfvoI/mqdefault.jpg" alt="Vattenfall bildet aus - Ausbildung zum Elektroniker für Automatisierungstechnik"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLwvQdKyTste7kjVTbrwL2zUkwm4JZ7to1" title="Vattenfall bildet aus - Ausbildung zum Elektroniker für Automatisierungstechnik">Vattenfall bildet aus - Ausbildung zum Elektroniker für Automatisierungstechnik</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21" title="see 21">21</a></td>
+	  <td>13</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=21" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=200" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>201</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLW-CfcwX9jj0v18-FXgA-vlWbOKZrWkno" title="Doreen S. - Abteilungsleiterin Wohnzimmer bei mömax"><img width="100px" src="https://i.ytimg.com/vi/CqrZexgI-7E/mqdefault.jpg" alt="Doreen S. - Abteilungsleiterin Wohnzimmer bei mömax"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLW-CfcwX9jj0v18-FXgA-vlWbOKZrWkno" title="Doreen S. - Abteilungsleiterin Wohnzimmer bei mömax">Doreen S. - Abteilungsleiterin Wohnzimmer bei mömax</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21" title="see 21">21</a></td>
+	  <td>20</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=21" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=201" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>211</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLB313BD542E7BA32D" title="Karrierechancen im Vodafone Vertrieb für Privatkunden"><img width="100px" src="https://i.ytimg.com/vi/8he-jmGXT78/mqdefault.jpg" alt="Karrierechancen im Vodafone Vertrieb für Privatkunden"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLB313BD542E7BA32D" title="Karrierechancen im Vodafone Vertrieb für Privatkunden">Karrierechancen im Vodafone Vertrieb für Privatkunden</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21" title="see 21">21</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=21" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=211" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>218</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLymoc6tyi8vtV1txYqYx8NLsQ1jzuTQKw" title="Tägliche Nachrichten (01.04.2016)"><img width="100px" src="https://i.ytimg.com/vi/Vijy3qcoEOg/mqdefault.jpg" alt="Tägliche Nachrichten (01.04.2016)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLymoc6tyi8vtV1txYqYx8NLsQ1jzuTQKw" title="Tägliche Nachrichten (01.04.2016)">Tägliche Nachrichten (01.04.2016)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=2" title="see 2">2</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=2" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=218" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>219</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLihOGLtyp4fb2CrUDdmk5_PaaEy7hqL4K" title="Wird die Bundestagswahl gehackt? | heute-show vom 22.09.2017"><img width="100px" src="https://i.ytimg.com/vi/yAFC0su4t-E/mqdefault.jpg" alt="Wird die Bundestagswahl gehackt? | heute-show vom 22.09.2017"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLihOGLtyp4fb2CrUDdmk5_PaaEy7hqL4K" title="Wird die Bundestagswahl gehackt? | heute-show vom 22.09.2017">Wird die Bundestagswahl gehackt? | heute-show vom 22.09.2017</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=2" title="see 2">2</a></td>
+	  <td>3</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=2" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=219" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>220</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6B3FCDFE971139C8" title="Raus aus der Kohle - muss Deutschland mehr für’s Klima tun? - Presseclub vom 12.11.17"><img width="100px" src="https://i.ytimg.com/vi/gk-7-WcKWLw/mqdefault.jpg" alt="Raus aus der Kohle - muss Deutschland mehr für’s Klima tun? - Presseclub vom 12.11.17"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL6B3FCDFE971139C8" title="Raus aus der Kohle - muss Deutschland mehr für’s Klima tun? - Presseclub vom 12.11.17">Raus aus der Kohle - muss Deutschland mehr für’s Klima tun? - Presseclub vom 12.11.17</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=2" title="see 2">2</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=2" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=220" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>222</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL9Y-5AwVmtBEIX06Ynu7v1dNG_JB4IJjm" title="heute- vom 20. April 2017 | NEO MAGAZIN ROYALE mit Jan Böhmermann - ZDFneo"><img width="100px" src="https://i.ytimg.com/vi/jFTBpAk49dA/mqdefault.jpg" alt="heute- vom 20. April 2017 | NEO MAGAZIN ROYALE mit Jan Böhmermann - ZDFneo"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL9Y-5AwVmtBEIX06Ynu7v1dNG_JB4IJjm" title="heute- vom 20. April 2017 | NEO MAGAZIN ROYALE mit Jan Böhmermann - ZDFneo">heute- vom 20. April 2017 | NEO MAGAZIN ROYALE mit Jan Böhmermann - ZDFneo</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=2" title="see 2">2</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=2" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=222" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>223</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLoOjDOqF_uxgGWqFPhaAE24mF0Hk3iBTk" title="Schule fängt an SCHEISE ????(Guten morgen Deutschland) #13"><img width="100px" src="https://i.ytimg.com/vi/r-GsFj37m04/mqdefault.jpg" alt="Schule fängt an SCHEISE ????(Guten morgen Deutschland) #13"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLoOjDOqF_uxgGWqFPhaAE24mF0Hk3iBTk" title="Schule fängt an SCHEISE ????(Guten morgen Deutschland) #13">Schule fängt an SCHEISE ????(Guten morgen Deutschland) #13</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=2" title="see 2">2</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=2" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=223" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>241</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLYzp2xhTw9W1Z9RvnCoveC0W7pkwUMHXy" title="LEARN GERMAN FOR BEGINNERS LESSONS 1-50 for FREE ????????????"><img width="100px" src="https://i.ytimg.com/vi/MOtqMNKs0Jw/mqdefault.jpg" alt="LEARN GERMAN FOR BEGINNERS LESSONS 1-50 for FREE ????????????"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLYzp2xhTw9W1Z9RvnCoveC0W7pkwUMHXy" title="LEARN GERMAN FOR BEGINNERS LESSONS 1-50 for FREE ????????????">LEARN GERMAN FOR BEGINNERS LESSONS 1-50 for FREE ????????????</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=241" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>242</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLw00jk8PXijN77UuGHhNGuSbaLFgWLyx8" title="Einstufungstest Niveau A1"><img width="100px" src="https://i.ytimg.com/vi/xPDqPk5yq4A/mqdefault.jpg" alt="Einstufungstest Niveau A1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLw00jk8PXijN77UuGHhNGuSbaLFgWLyx8" title="Einstufungstest Niveau A1">Einstufungstest Niveau A1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>18</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=242" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>243</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLmsbcDaKqsqqyxn8OCBh14Wt6mW4iggrT" title="Deutsch Lernen  für Anfänger | German Beginner Vocabulary | Teil 1"><img width="100px" src="https://i.ytimg.com/vi/qJOmAkei4pU/mqdefault.jpg" alt="Deutsch Lernen  für Anfänger | German Beginner Vocabulary | Teil 1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLmsbcDaKqsqqyxn8OCBh14Wt6mW4iggrT" title="Deutsch Lernen  für Anfänger | German Beginner Vocabulary | Teil 1">Deutsch Lernen  für Anfänger | German Beginner Vocabulary | Teil 1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>12</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=243" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>249</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRHQmEm3EkzAr1R-mPZIDYX" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"><img width="100px" src="https://i.ytimg.com/vi/dfCH7kWzZu4/mqdefault.jpg" alt="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRHQmEm3EkzAr1R-mPZIDYX" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag">Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=249" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>250</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSAy7I8uqqW-UtsvCYAfEBd" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"><img width="100px" src="https://i.ytimg.com/vi/dfCH7kWzZu4/mqdefault.jpg" alt="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSAy7I8uqqW-UtsvCYAfEBd" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag">Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>10</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=250" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>251</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSW4soeeSNth5mFiCaBGXWC" title="Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)"><img width="100px" src="https://i.ytimg.com/vi/wNPHUUMwo1g/mqdefault.jpg" alt="Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSW4soeeSNth5mFiCaBGXWC" title="Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)">Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=251" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>252</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8DDA3F6B392BBE34" title="Herzlich Willkommen bei ziesche-elearning.de (Deutsch Kurs für Einsteiger und Fortgeschrittene)"><img width="100px" src="https://i.ytimg.com/vi/fyqy7aomXeA/mqdefault.jpg" alt="Herzlich Willkommen bei ziesche-elearning.de (Deutsch Kurs für Einsteiger und Fortgeschrittene)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL8DDA3F6B392BBE34" title="Herzlich Willkommen bei ziesche-elearning.de (Deutsch Kurs für Einsteiger und Fortgeschrittene)">Herzlich Willkommen bei ziesche-elearning.de (Deutsch Kurs für Einsteiger und Fortgeschrittene)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=252" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>254</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL9PKnxl4d8EUOwR_SZ3GECdbgHWgQRDvM" title="Deutsch lernen Grammatik 13: mich - dich - den - einen ... (Akkusativ)"><img width="100px" src="https://i.ytimg.com/vi/igFWj7RqbtM/mqdefault.jpg" alt="Deutsch lernen Grammatik 13: mich - dich - den - einen ... (Akkusativ)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PL9PKnxl4d8EUOwR_SZ3GECdbgHWgQRDvM" title="Deutsch lernen Grammatik 13: mich - dich - den - einen ... (Akkusativ)">Deutsch lernen Grammatik 13: mich - dich - den - einen ... (Akkusativ)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5" title="see 5">5</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=5" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=254" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>255</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLpWerCyspKgZSMETqlwPkxHUINu76nmbt" title=""><img width="100px" src="https://i.ytimg.com/vi//mqdefault.jpg" alt=""></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLpWerCyspKgZSMETqlwPkxHUINu76nmbt" title=""></a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3" title="see 3">3</a></td>
+	  <td>0</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=3" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=255" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   </tbody>
+
+</table>
+</div>
+</body></html>

@@ -1,0 +1,316 @@
+  <html>
+<head>
+   <link rel="icon" href="https://www.w3schools.com/tags/demo_icon.gif" type="image/gif" sizes="16x16">
+<link rel="stylesheet" type="text/css" href="views/videoDetail/mystyle.css">
+  <!-- Bootstrap v4.x stylesheet -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<!-- bootstrap css theme -->
+	<link rel="stylesheet" href="https://mottie.github.io/tablesorter/docs/css/bootstrap-v4.min.css">
+
+	<script src="https://mottie.github.io/tablesorter/docs/js/jquery-latest.min.js"></script>
+	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+	<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+
+	<!-- pager plugin -->
+	<link rel="stylesheet" href="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.css">
+	<script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+	<style>
+	.tablesorter-pager .btn-group-sm .btn {
+	  font-size: 1.2em; /* make pager arrows more visible */
+	}
+	</style>
+  <script>
+  $(function() {
+
+  $("table").tablesorter({
+    theme : "bootstrap",
+
+    widthFixed: true,
+
+    // widget code contained in the jquery.tablesorter.widgets.js file
+    // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+    // the uitheme widget is NOT REQUIRED!
+    widgets : [ "filter", "columns", "zebra" ],
+
+    widgetOptions : {
+      // using the default zebra striping class name, so it actually isn't included in the theme variable above
+      // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+      zebra : ["even", "odd"],
+
+      // class names added to columns when sorted
+      columns: [ "primary", "secondary", "tertiary" ],
+
+      // reset filters button
+      filter_reset : ".reset",
+
+      // extra css class name (string or array) added to the filter element (input or select)
+      filter_cssFilter: [
+        'form-control',
+        'form-control',
+        'form-control custom-select', // select needs custom class names :(
+        'form-control',
+        'form-control',
+        'form-control',
+        'form-control'
+      ]
+
+    }
+  })
+  .tablesorterPager({
+
+    // target the pager markup - see the HTML block below
+    container: $(".ts-pager"),
+
+    // target the pager page select dropdown - choose a page
+    cssGoto  : ".pagenum",
+
+    // remove rows from the table to speed up the sort of large tables.
+    // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+    removeRows: false,
+
+    // output string - default is '{page}/{totalPages}';
+    // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
+    output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
+
+  });
+
+});
+  </script>  <title>Category Video Manage</title>
+
+</head>
+<body>
+
+
+
+<div class="contentItem">
+	<div class="dropdown">
+	  <button class="dropbtn">ListDetail</button>
+	  <div class="dropdown-content">
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getAllWithView&k=1">get All ListDetail</a>
+		<a href="#">Add New</a>
+		<a href="#">Remove</a>
+	  </div>
+	</div>
+	<div class="dropdown">
+	  <button class="dropbtn">get All VideosDetail</button>
+	  <div class="dropdown-content">
+		<a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getAllWithView&k=0">get All VideosDetail(>10s)</a>
+		<a href="#">Add New</a>
+		<a href="#">Remove</a>
+	  </div>
+	</div>
+	<div class="dropdown">
+	  <button class="dropbtn">get All Category(3-10)</button>
+	  <div class="dropdown-content">
+		
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=3"> Category Beginners</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4"> Category Listening</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=5"> Category Grammar</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=6"> Category Vocabulary</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=7"> Category Reading</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=8"> Category Writing</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=9"> Category Pronunciation</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=10">Category Speaking</a>
+	  </div>
+	</div>
+	
+	<div class="dropdown">
+	  <button class="dropbtn">get All Category(11-17)</button>
+	  <div class="dropdown-content">
+				<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=11">Category Exams</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=12"> Category German Songs</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=13"> Category German Film</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=14"> Category German For Kids</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=15"> Category DSH Exams</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=16"> Category Study in Germany</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=17"> Category Life in Germany</a>
+	  </div>
+	</div>
+	
+	<div class="dropdown">
+	  <button class="dropbtn">get All Category(18-22)</button>
+	  <div class="dropdown-content">
+				<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=18"> Category Numbers</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=19"> Category Shopping</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=20"> Category Food</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=21"> Category Jobs</a>
+		<a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=22"> Category Health</a>
+	  </div>
+	</div>
+</div>
+
+
+<form method="get" style="margin-left: 100px;" >
+	<input type="text" name="kw" value="" placeholder="search here">
+	<input type="submit" name="submit" value="search name videos">
+</form>
+
+
+<form method="get" style="margin-left: 100px;" >
+	<input type="text" name="kwl" value="" placeholder="search name List here">
+	<input type="submit" name="submit" value="search name List videos">
+</form><br/>
+<h1>Category Video Manage</h1>
+
+
+<table class="table table-bordered table-striped">
+  <thead> <!-- add class="thead-inverse" for a dark header -->
+    <tr>
+      <th>stt</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>CategoryID</th>
+      <th>Video count</th>
+      <th>Add too</th>
+      <th>Xoa</th>
+	</tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>stt</th>
+      <th>Image</th>
+      <th>Name</th>
+	  <th>CategoryID</th>
+      <th>Video count</th>
+      <th>Add too</th>
+      <th>Xoa</th>
+    </tr>
+    <tr>
+      <th colspan="7" class="ts-pager">
+        <div class="form-inline">
+          <div class="btn-group btn-group-sm mx-1" role="group">
+            <button type="button" class="btn btn-secondary first" title="first">⇤</button>
+            <button type="button" class="btn btn-secondary prev" title="previous">←</button>
+          </div>
+          <span class="pagedisplay"></span>
+          <div class="btn-group btn-group-sm mx-1" role="group">
+            <button type="button" class="btn btn-secondary next" title="next">→</button>
+            <button type="button" class="btn btn-secondary last" title="last">⇥</button>
+          </div>
+          <select class="form-control-sm custom-select px-1 pagesize" title="Select page size">
+            <option selected="selected" value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="all">All Rows</option>
+          </select>
+          <select class="form-control-sm custom-select px-4 mx-1 pagenum" title="Select page number"></select>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+  <tbody>
+	
+   <tr>
+      <td>12</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRFXJhfkdY8vrLjZ2470cy0" title="Einfach Deutsch lernen mit Untertiteln"><img width="100px" src="https://i.ytimg.com/vi/EzYBUIRFHAY/mqdefault.jpg" alt="Einfach Deutsch lernen mit Untertiteln"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRFXJhfkdY8vrLjZ2470cy0" title="Einfach Deutsch lernen mit Untertiteln">Einfach Deutsch lernen mit Untertiteln</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=12" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>178</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_2gp2SvVEWLD0QItYO4hAp" title="German Listening B2 | Hörverstehen B2 | #1"><img width="100px" src="https://i.ytimg.com/vi/kyELlx_QKY4/mqdefault.jpg" alt="German Listening B2 | Hörverstehen B2 | #1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_2gp2SvVEWLD0QItYO4hAp" title="German Listening B2 | Hörverstehen B2 | #1">German Listening B2 | Hörverstehen B2 | #1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>12</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=178" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>179</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-ijSkgULtNyEZj-aFarkrN" title="Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4"><img width="100px" src="https://i.ytimg.com/vi/SBrOJs1VHUg/mqdefault.jpg" alt="Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-ijSkgULtNyEZj-aFarkrN" title="Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4">Zertifikat Deutsch B1 | Hörverstehen B1 | Modelltest 4</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>6</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=179" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>180</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi9_v3jkQ4l8YcguTKo1Mvny" title="Zertifikat Deutsch C1 Teil Hörverstehen"><img width="100px" src="https://i.ytimg.com/vi/8_20qXsBFGk/mqdefault.jpg" alt="Zertifikat Deutsch C1 Teil Hörverstehen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi9_v3jkQ4l8YcguTKo1Mvny" title="Zertifikat Deutsch C1 Teil Hörverstehen">Zertifikat Deutsch C1 Teil Hörverstehen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>1</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=180" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>181</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_TkFLjRXJhhaHulwHYHrw7" title="Hörverstehen für Oberstufe #1 | C1-DAF-DSH"><img width="100px" src="https://i.ytimg.com/vi/IeChX1tXp00/mqdefault.jpg" alt="Hörverstehen für Oberstufe #1 | C1-DAF-DSH"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_TkFLjRXJhhaHulwHYHrw7" title="Hörverstehen für Oberstufe #1 | C1-DAF-DSH">Hörverstehen für Oberstufe #1 | C1-DAF-DSH</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=181" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>182</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_z41JEgMsTfnC2djLR_jnx" title="TestDaF | DSH vorbereitung | Hörtext 1"><img width="100px" src="https://i.ytimg.com/vi/MVNZMoRuIl8/mqdefault.jpg" alt="TestDaF | DSH vorbereitung | Hörtext 1"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi_z41JEgMsTfnC2djLR_jnx" title="TestDaF | DSH vorbereitung | Hörtext 1">TestDaF | DSH vorbereitung | Hörtext 1</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>5</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=182" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>184</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-z_4EIiSAizY3ejlBXfBIo" title="Geschichte für Anfänger #1 | Deutsch lernen"><img width="100px" src="https://i.ytimg.com/vi/Ez0QyozJbEU/mqdefault.jpg" alt="Geschichte für Anfänger #1 | Deutsch lernen"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLXquLwDbNqi-z_4EIiSAizY3ejlBXfBIo" title="Geschichte für Anfänger #1 | Deutsch lernen">Geschichte für Anfänger #1 | Deutsch lernen</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>23</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=184" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>249</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRHQmEm3EkzAr1R-mPZIDYX" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"><img width="100px" src="https://i.ytimg.com/vi/dfCH7kWzZu4/mqdefault.jpg" alt="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuRHQmEm3EkzAr1R-mPZIDYX" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag">Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>9</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=249" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>250</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSAy7I8uqqW-UtsvCYAfEBd" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"><img width="100px" src="https://i.ytimg.com/vi/dfCH7kWzZu4/mqdefault.jpg" alt="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSAy7I8uqqW-UtsvCYAfEBd" title="Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag">Deutsch lernen durch Hören #238: Deutsch lernen im Schlaf - 11. Tag</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>10</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=250" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   	
+   <tr>
+      <td>251</td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSW4soeeSNth5mFiCaBGXWC" title="Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)"><img width="100px" src="https://i.ytimg.com/vi/wNPHUUMwo1g/mqdefault.jpg" alt="Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)"></a></td>
+      <td><b>List :</b><a href="http://localhost/8000videosdeutschlernen/?c=videoDetail&a=getByGetFromListWithView&k=PLX2E6b7TzXuSW4soeeSNth5mFiCaBGXWC" title="Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)">Deutsch lernen durch Hören #261:Ein Dialog zum Deutsch lernen | Vorstellungsgespräch(mit Musik)</a></td>
+      <td><a href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=getByCategoryIDWithCountWithView&k=4" title="see 4">4</a></td>
+	  <td>25</td>
+      <td><a href="http://localhost/getvideo-youtube/?CategoryID=4" title="add more List Videos hier">Add more ListVideo</a></td>
+      <td><a class="delete" href="http://localhost/8000videosdeutschlernen/?c=listDetail&a=removeById&k=251" title="delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+   </tr>
+   
+   </tbody>
+
+</table>
+</div>
+</body></html>
